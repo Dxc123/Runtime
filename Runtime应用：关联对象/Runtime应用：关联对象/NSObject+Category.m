@@ -7,19 +7,19 @@
 //
 
 #import "NSObject+Category.h"
-
+//创建一个关联的key
+static NSString *nameStr = @"nameStr";
 @implementation NSObject (Category)
 
+//添加对应的set和get方法
 -(void)setName:(NSString *)name
 {
-    objc_setAssociatedObject(self, @"name",name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &nameStr,nameStr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 -(NSString *)name
 {
-    return objc_getAssociatedObject(self, @"name");
+    return objc_getAssociatedObject(self, &nameStr);
 }
-
-
 
 
 
